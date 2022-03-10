@@ -58,7 +58,38 @@ const numTree = {
   },
 }; // Sum : 56
 
+const numTree2 = {
+  value: 2,
+  left: {
+    value: 40,
+    left: {
+      value: 8,
+      left: null,
+      right: null,
+    },
+    right: {
+      value: 10,
+      left: null,
+      right: null,
+    },
+  },
+  right: {
+    value: 12,
+    left: {
+      value: 6,
+      left: null,
+      right: null,
+    },
+    right: {
+      value: 14,
+      left: null,
+      right: null,
+    },
+  },
+};
+
 module.exports = {
   tree,
   numTree,
+  numTree2,
 };
