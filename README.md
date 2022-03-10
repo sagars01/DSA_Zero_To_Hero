@@ -17,7 +17,10 @@ So the path I am following
 2. Solve the easy problems that are shown in the lectures.
 3. Solve the different types of problems from the Blinds List.
 
-# IMPORTANT LINKS
+## IMPORTANT LINKS
+
+Blind's 75 List
+https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
 
 ## TOPIC WISE LECTURES IN ORDER
 
@@ -30,4 +33,5 @@ https://youtu.be/IJDJ0kBx2LM
 ### BINARY TREES
 
 Freecodecamp Binary Trees for Tech Interviews.
+
 https://youtu.be/fAAZixBzIAI
