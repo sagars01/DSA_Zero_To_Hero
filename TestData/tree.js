@@ -29,34 +29,34 @@ const tree = {
 };
 
 const numTree = {
-  value: '2',
+  value: 2,
   left: {
-    value: '4',
+    value: 4,
     left: {
-      value: '8',
+      value: 8,
       left: null,
       right: null,
     },
     right: {
-      value: '10',
+      value: 10,
       left: null,
       right: null,
     },
   },
   right: {
-    value: '12',
+    value: 12,
     left: {
-      value: '6',
+      value: 6,
       left: null,
       right: null,
     },
     right: {
-      value: '14',
+      value: 14,
       left: null,
       right: null,
     },
   },
-};
+}; // Sum : 56
 
 module.exports = {
   tree,
