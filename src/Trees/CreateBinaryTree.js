@@ -24,12 +24,13 @@ function insertNode(tree, value) {
   return tree;
 }
 
+/**
+ * @param pass an array of numbers | string
+ */
 function CreateBinaryTree(treeArray) {
   const array = treeArray,
     tree = array.reduce((t, v) => (t ? insertNode(t, v) : new Node(v)), null);
   return tree;
 }
 
-module.exports = {
-  CreateBinaryTree,
-};
+module.exports = CreateBinaryTree;

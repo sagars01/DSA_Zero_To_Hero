@@ -23,4 +23,4 @@ function isSameTree(p, q) {
   return true;
 }
 
-console.log(isSameTree(numTree, tree));
+module.exports = isSameTree;
