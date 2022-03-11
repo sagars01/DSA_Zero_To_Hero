@@ -4,6 +4,9 @@
 
 // Recursive
 const { CreateBinaryTree } = require('./CreateBinaryTree');
-const { createBinTreeStub } = require('../TestData/tree');
 
-console.log(CreateBinaryTree(createBinTreeStub));
+function invertBinaryTree(node) {
+  return node;
+}
+
+module.exports = invertBinaryTree;
