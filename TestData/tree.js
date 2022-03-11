@@ -88,8 +88,11 @@ const numTree2 = {
   },
 };
 
+const createBinTreeStub = [8, 10, 12, 5, 3, 6];
+
 module.exports = {
   tree,
   numTree,
   numTree2,
+  createBinTreeStub,
 };
