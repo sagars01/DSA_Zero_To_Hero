@@ -2,7 +2,7 @@
   "name": "node-starter",
   "version": "0.0.0",
   "scripts": {
-    "test": "npm test"
+    "test": "jest"
   },
   "dependencies": {
     "jest": "^27.5.1"

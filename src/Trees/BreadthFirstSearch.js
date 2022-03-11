@@ -1,4 +1,4 @@
-const { tree } = require('../TestData/tree');
+const { tree } = require('../../TestData/tree');
 
 const breadthFirstSearch = (root) => {
   let queue = [root];

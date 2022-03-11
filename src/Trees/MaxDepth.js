@@ -2,7 +2,7 @@
  * Find the max depth of the binary Tree
  */
 
-const { tree } = require('../TestData/tree');
+const { tree } = require('../../TestData/tree');
 
 function depth(node) {
   if (node === null) {

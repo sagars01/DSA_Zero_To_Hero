@@ -1,4 +1,4 @@
-const { tree } = require('../TestData/tree');
+const { tree } = require('../../TestData/tree');
 
 const TreeIncludes = (root, target) => {
   if (root === null) return false;

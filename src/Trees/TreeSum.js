@@ -1,4 +1,4 @@
-const { numTree } = require('../TestData/tree');
+const { numTree } = require('../../TestData/tree');
 
 function treeSum(root) {
   if (root === null) {
