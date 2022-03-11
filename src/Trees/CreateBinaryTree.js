@@ -4,19 +4,19 @@
  *
  */
 
-function Node(value) {
-  this.value = value;
+function Node(val) {
+  this.val = val;
   this.left = null;
   this.right = null;
 }
 
-function insertNode(tree, value) {
+function insertNode(tree, val) {
   var node = tree,
     key;
-  while (node.value !== value) {
-    key = value < node.value ? 'left' : 'right';
+  while (node.val !== val) {
+    key = val < node.val ? 'left' : 'right';
     if (!node[key]) {
-      node[key] = new Node(value);
+      node[key] = new Node(val);
       break;
     }
     node = node[key];

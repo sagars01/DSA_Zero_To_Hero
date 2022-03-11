@@ -15,4 +15,4 @@ const breadthFirstSearch = (root) => {
   return denormalized;
 };
 
-console.log(breadthFirstSearch(tree));
+module.exports = breadthFirstSearch;

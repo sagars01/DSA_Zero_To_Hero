@@ -12,7 +12,7 @@ function isSameTree(p, q) {
     const second = queue.shift();
 
     if (!first && !second) continue;
-    if (!first || !second || first.value !== second.value) return false;
+    if (!first || !second || first.val !== second.val) return false;
 
     queue.push(first.left);
     queue.push(second.left);

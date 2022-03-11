@@ -3,10 +3,11 @@
  */
 
 // Recursive
-const { CreateBinaryTree } = require('./CreateBinaryTree');
 
 function invertBinaryTree(node) {
-  return node;
+  if (node !== null) {
+    let temp = node.left;
+  }
 }
 
 module.exports = invertBinaryTree;

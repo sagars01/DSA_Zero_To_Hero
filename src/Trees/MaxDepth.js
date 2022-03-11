@@ -11,4 +11,4 @@ function depth(node) {
   return Math.max(depth(node.left), depth(node.right)) + 1;
 }
 
-console.log(depth(tree));
+module.exports = depth;
