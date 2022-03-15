@@ -3,8 +3,6 @@
  * https://leetcode.com/problems/same-tree/
  */
 
-const { numTree, numTree2, tree } = require('../../TestData/tree');
-
 function isSameTree(p, q) {
   const queue = [p, q];
   while (queue.length > 0) {
