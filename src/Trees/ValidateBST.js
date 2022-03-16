@@ -1,18 +1,18 @@
 /**
- * https://leetcode.com/problems/validate-binary-search-tree/
+ * https://leetcode.com/problems/valueidate-binary-search-tree/
  *
  *
  */
 
-function ValidateBinarySearchTree(root) {
+function valueidateBinarySearchTree(root) {
   const queue = [root];
 
   while (queue.length > 0) {
     const current = queue.shift();
-    const currentVal = current.val;
+    const currentvalue = current.value;
     if (
-      (current.left && current.left.val > currentVal) ||
-      (current.right && current.right.val < currentVal)
+      (current.left && current.left.value > currentvalue) ||
+      (current.right && current.right.value < currentvalue)
     ) {
       return false;
     }
@@ -23,3 +23,5 @@ function ValidateBinarySearchTree(root) {
 
   return true;
 }
+
+module.exports = valueidateBinarySearchTree;
