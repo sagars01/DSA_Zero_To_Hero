@@ -1,8 +1,9 @@
 const { BinarySearchTree } = require('datastructures-js');
 const ValidateBST = require('../../src/Trees/ValidateBST');
+const { BTree } = require('@dsinjs/binary-tree');
 
 describe('Validate Binary Search Tree Test Suite', () => {
-  test('Tree', () => {
+  xtest('Valid BST', () => {
     const bst = new BinarySearchTree();
     bst.insert(5, 5);
     bst.insert(2, 2);
@@ -10,4 +11,6 @@ describe('Validate Binary Search Tree Test Suite', () => {
 
     expect(ValidateBST(bst)).toBe(true);
   });
+
+  test('Invalid BST', () => {});
 });
