@@ -5,6 +5,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "js-data-structures-and-algorithms": "^1.12.1"
   }
 }
