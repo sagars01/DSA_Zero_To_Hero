@@ -8,11 +8,27 @@
 /**
  * @param {number[]} nums
  * @return {number[]}
+ * @extends find a way to optimize this code to get 90%+ run time;
  */
 var productExceptSelf = function (nums) {
-  if (nums.length === 0 || !Array.isArray(nums)) return [];
+  if (!Array.isArray(nums) || nums.length === 0) return [];
+  let result = [];
+  let prefix = 1;
 
-  return nums;
+  result[0] = 1;
+  for (let i = 1; i < nums.length; i++) {
+    let prefixProduct = prefix * nums[i - 1];
+    result[i] = prefixProduct;
+    prefix = prefixProduct;
+  }
+
+  let suffix = 1;
+  for (let j = nums.length - 1; j >= 0; j--) {
+    result[j] *= suffix;
+    suffix *= nums[j];
+  }
+
+  return result;
 };
 
 module.exports = productExceptSelf;
