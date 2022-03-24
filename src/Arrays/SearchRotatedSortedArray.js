@@ -17,7 +17,6 @@ var search = function (nums, target) {
   let end = nums.length - 1;
 
   if (nums.length === 1 && nums[0] !== target) return -1;
-  // [3 , 1  ] 3
   while (start <= end) {
     const mid = Math.floor((start + end) / 2);
     if (nums[mid] === target) return mid;
