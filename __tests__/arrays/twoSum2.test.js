@@ -1,4 +1,3 @@
-const twoSum2 = require('../../src/Arrays/TwoSum2');
 const TwoSum = require('../../src/Arrays/TwoSum2');
 
 describe('Two Sum II test suite', () => {
