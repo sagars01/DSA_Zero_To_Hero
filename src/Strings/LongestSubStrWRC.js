@@ -13,7 +13,6 @@
  * @param {string} s
  * @return {number}
  *
- * dvdf
  */
 var lengthOfLongestSubstring = function (s) {
   if (s.length < 2) return s.length;
