@@ -5,7 +5,7 @@
             Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
  * @author sagars01
  * 
- * @type hard
+ * @type HARD
  * @description 
  * 
  */
@@ -19,10 +19,23 @@ var minWindow = function (s, t) {
   let left = 0;
   let right = t.length - 1;
   const tlen = t.length;
-  const sub = t;
-  const q = sub.split('');
+  const q = t.split('');
+  const tMap = new Map();
   const findSub = (subStr) => {
     // The order of the string is also important
+    // bac !== aba
+    if (tMap.size === 0) {
+      for (const char of t) {
+        if (tMap.has(char)) {
+          let count = tMap.get(char);
+          tMap.set(char, count++);
+        } else {
+          tMap.set(char, 1);
+        }
+      }
+    }
+
+    // Now your map is ready, now you have to check if the count of characters is same or not.
 
     let isMatch = true;
     q.forEach((char) => {
