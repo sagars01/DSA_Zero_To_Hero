@@ -17,26 +17,35 @@
  * @return {string}
  */
 var longestPalindrome = function (s) {
-  let longest = '';
-  const findLongestPalindrome = (str, i, j) => {
-    while (i >= 0 && j < str.length && str[i] === str[j]) {
-      i -= 1;
-      j += 1;
+  // Let's use the onion peeling technique.
+  // remember the onion peeling technique starts from the first index, dont
+  // get confused that you will start from the middle
+
+  /**
+   * @param {string} str
+   * @param {number} left
+   * @param {number} right
+   *
+   */
+  const peeler = (str, left, right) => {
+    while (str[left] === str[right] && left > -1 && right < str.length) {
+      left--;
+      right++;
     }
-    // slice the qualified substring from the second last iteration
-    return str.slice(i + 1, j);
+
+    return str.slice(left + 1, right);
   };
+  let longestS = '';
   for (let i = 0; i < s.length; i++) {
-    // palindrome can center around 1 or 2 letters
-    const current1 = findLongestPalindrome(s, i, i);
-    const current2 = findLongestPalindrome(s, i, i + 1);
-    const longerPalindrome =
-      current1.length > current2.length ? current1 : current2;
-    if (longerPalindrome.length > longest.length) {
-      longest = longerPalindrome;
+    const p1 = peeler(s, i, i);
+    const p2 = peeler(s, i, i + 1);
+    const p = p1.length > p2.length ? p1 : p2;
+    if (p.length > longestS.length) {
+      longestS = p;
     }
   }
-  return longest;
+
+  return longestS;
 };
 
 module.exports = longestPalindrome;
