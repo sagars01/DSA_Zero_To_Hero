@@ -15,14 +15,14 @@ Here are couple of important resources that I recommend before you start with yo
 
 After setting up the basic understanding then you might want to start solving this list below.
 
-1.) Letter Combinations of a Phone Number
-2.)Generate Parentheses
-3.)Permutations
-4.)Permutations II
-5.)Combinations
-6.)Subsets
-7.)Subsets II
-8.)N-Queens
+- 1.) Letter Combinations of a Phone Number
+- 2.)Generate Parentheses
+- 3.)Permutations
+- 4.)Permutations II
+- 5.)Combinations
+- 6.)Subsets
+- 7.)Subsets II
+- 8.)N-Queens
 
 The code for these problems are there in the current directory. Once, you are comfortable with all these problems. I believe you can tackle any problem related to backtracking in the future.
 
