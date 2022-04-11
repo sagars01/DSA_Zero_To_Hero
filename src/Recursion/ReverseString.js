@@ -25,4 +25,24 @@ var reverseStringRecursive = (s, t = 0) => {
   return reverseStringRecursive(s, t + 1) + s[t];
 };
 
-module.exports = { reverseString, reverseStringRecursive };
+const reverseWithTwoPtrsNRecursion = (s) => {
+  const helper = (s, start, end) => {
+    if (start >= end) {
+      return s;
+    }
+
+    const t = s[start];
+    s[start] = s[end];
+    s[end] = t;
+
+    const str = helper(s, (start += 1), (end -= 1));
+    return str;
+  };
+  return helper([...s], 0, s.length - 1).join('');
+};
+
+module.exports = {
+  reverseString,
+  reverseStringRecursive,
+  reverseWithTwoPtrsNRecursion,
+};
