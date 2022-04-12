@@ -1,4 +1,4 @@
-# WHAT IS THIS?
+# DATA STRUCTURES AND ALGORITHMS IN JAVASCRIPT - PROBLEMS AND SOLUTIONS
 
 This is the collection of all the data structures and algorithmic questions that I have solved over the years to get better into tech interviews.
 
