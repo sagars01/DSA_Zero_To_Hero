@@ -1,6 +1,6 @@
-# DATA STRUCTURES AND ALGORITHMS IN JAVASCRIPT - PROBLEMS AND SOLUTIONS
+# DATA STRUCTURES AND ALGORITHMS IN JAVASCRIPT
 
-This is the collection of all the data structures and algorithmic questions that I have solved over the years to get better into tech interviews.
+This is the collection of all the data structures and algorithmic questions that I have solved over the years to get better into tech interviews and software engineering
 
 All the code is written in Vanilla JavaScript, so if you're OKish JS then this should be very easy to follow along.
 
