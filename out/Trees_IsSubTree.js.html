@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Trees/IsSubTree.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,59 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Trees/IsSubTree.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * https://leetcode.com/problems/subtree-of-another-tree/
+ */
 
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {TreeNode} subRoot
+ * @return {boolean}
+ */
 
-    <h3> </h3>
+var isSubtree = function (root, subRoot) {
+  const isSameTree = (p, q) => {
+    if (!p || !q) return !p &amp;&amp; !q;
 
+    if (p.val !== q.val) return false;
 
+    return isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right);
+  };
 
+  const dfs = (rootNode) => {
+    if (rootNode === null) return false;
 
+    if (isSameTree(rootNode, subRoot)) {
+      return true;
+    }
 
+    return dfs(rootNode.left) || dfs(rootNode.right);
+  };
 
+  return dfs(root);
+};
 
-
-
-
-    
-
-
-
-
-
+module.exports = isSubtree;
+</code></pre>
+        </article>
+    </section>
 
 
 

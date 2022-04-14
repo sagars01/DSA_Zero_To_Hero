@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Arrays/MaxProductSubArray.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,51 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Arrays/MaxProductSubArray.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/maximum-product-subarray/
+ * @example Input: nums = [2,3,-2,4]
+            Output: 6
+ * @author sagars01
+ */
 
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxProduct = function (nums) {
+  let max = Number.NEGATIVE_INFINITY;
+  let len = nums.length;
 
-    <h3> </h3>
+  if (len === 1) return nums[0];
 
+  let product = 1;
+  for (let i = 0; i &lt; len; i++) {
+    max = Math.max((product *= nums[i]), max);
+    if (nums[i] === 0) product = 1;
+  }
 
+  product = 1;
+  for (let i = len - 1; i > -1; i--) {
+    max = Math.max((product *= nums[i]), max);
+    if (nums[i] === 0) product = 1;
+  }
 
+  return max;
+};
 
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = maxProduct;
+</code></pre>
+        </article>
+    </section>
 
 
 

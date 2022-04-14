@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Trees/SameTree.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,42 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Trees/SameTree.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Check if two trees are same
+ * https://leetcode.com/problems/same-tree/
+ */
 
+function isSameTree(p, q) {
+  const queue = [p, q];
+  while (queue.length > 0) {
+    const first = queue.shift();
+    const second = queue.shift();
 
-    <h3> </h3>
+    if (!first &amp;&amp; !second) continue;
+    if (!first || !second || first.val !== second.val) return false;
 
+    queue.push(first.left);
+    queue.push(second.left);
+    queue.push(first.right);
+    queue.push(second.right);
+  }
 
+  return true;
+}
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = isSameTree;
+</code></pre>
+        </article>
+    </section>
 
 
 

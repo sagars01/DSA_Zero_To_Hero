@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Strings/MinimumWindowSubStr.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Strings/MinimumWindowSubStr.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/minimum-window-substring/
+ * @example Input: s = "ADOBECODEBANC", t = "ABC"
+            Output: "BANC"
+            Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+ * @author sagars01
+ * 
+ * @type HARD
+ * @description 
+ * 
+ */
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {string}
+ 
+var minWindow = function (s, t) {
+  let left = 0;
+  let right = t.length - 1;
+  const tlen = t.length;
+  const tMap = {};
+  const findSub = (subStr) => {
+    if (Object.keys(tMap).length === 0) {
+      t.split('').forEach((char) => {
+        if (tMap[char]) {
+          tMap[char] += 1;
+        } else {
+          tMap[char] = 1;
+        }
+      });
+    }
+    const tMapCopy = { ...tMap };
+    for (let char of subStr) {
+      if (tMapCopy[char]) {
+        tMapCopy[char]--;
+        if (tMapCopy[char] &lt;= 0) {
+          delete tMapCopy[char];
+        }
+      }
+    }
+
+    return Object.keys(tMapCopy).length === 0;
+  };
+  let max = s;
+  let minString;
+  let isFound = false;
+  while (right &lt; s.length) {
+    // 1. Check if the substring contains all the characters
+    const st = s;
+    // console.log(st.substring(left, right + 1));
+    const currentSubString = st.substring(left, right + 1);
+    const doesHaveAllCharacters = findSub(currentSubString);
+
+    if (doesHaveAllCharacters) {
+      // console.log('Match Found');
+      // console.log(currentSubString);
+      // Match is found and now we have to shorten the window size from left
+      if (!minString) {
+        minString = currentSubString;
+      } else if (currentSubString.length &lt; minString.length) {
+        minString = currentSubString;
+      }
+      isFound = true;
+      while (left &lt; right - tlen + 1) {
+        const subStrDecreasingWindow = st.substring(left + 1, right + 1);
+        const anotherStringWindow = findSub(subStrDecreasingWindow);
+
+        if (anotherStringWindow) {
+          // if I found another window which is smaller in length then I update minString;
+          minString = subStrDecreasingWindow;
+        }
+        left++;
+      }
+    }
+
+    right++;
+  }
+  return isFound ? minString : '';
+};
+*/
+var minWindow = function (s, t) {
+  // `right` is -1 since every loop, we start by expanding the right boundary
+  // setting this to -1 ensures that we will check the first char on the first time
+  let min = '',
+    left = 0,
+    right = -1;
+  let map = {};
+
+  // this creates a map for the characters we need to include in the substring
+  // we store the character and its count since it can be repeated
+  // for example: "BAAC"
+  t.split('').forEach((element) => {
+    if (map[element] == null) map[element] = 1;
+    else map[element] = map[element] + 1;
+  });
+
+  // sets how many different characters we still have
+  // for example: given the input "BAAC", we still have 3 different characters need to check
+  let count = Object.keys(map).length;
+
+  while (right &lt;= s.length) {
+    // found a valid substring
+    if (count == 0) {
+      // try to shift left boudary to the right, this means the very left character will be removed
+      // because of this, we need to check whats the affect by removing that character,
+      let current = s[left];
+
+      // if this chacter is in our map, it means we ll need to find another one in the future
+      if (map[current] != null) map[current]++;
+
+      // * we must have the condition `>0` because for case like "BBBA...", count for B could be negative
+      if (map[current] > 0) count++;
+
+      let temp = s.substring(left, right + 1);
+      if (min == '') min = temp;
+      else min = min.length &lt; temp.length ? min : temp;
+
+      left++;
+    } else {
+      right++;
+      let current = s[right];
+
+      // decrease the count for this character
+      if (map[current] != null) map[current]--;
+
+      if (map[current] == 0) count--;
+    }
+  }
+  return min;
+};
+
+let s = 'acbbaca',
+  t = 'aba';
+console.log(minWindow(s, t));
+
+// module.exports = minWindow;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#BinarySearch">BinarySearch</a></li><li><a href="global.html#characterReplacement">characterReplacement</a></li><li><a href="global.html#countSubstrings">countSubstrings</a></li><li><a href="global.html#CreateBinaryTree">CreateBinaryTree</a></li><li><a href="global.html#deserialize">deserialize</a></li><li><a href="global.html#findMin">findMin</a></li><li><a href="global.html#generate">generate</a></li><li><a href="global.html#groupAnagrams">groupAnagrams</a></li><li><a href="global.html#isSameTree">isSameTree</a></li><li><a href="global.html#isSubtree">isSubtree</a></li><li><a href="global.html#isValid">isValid</a></li><li><a href="global.html#isValidBST">isValidBST</a></li><li><a href="global.html#kthGrammar">kthGrammar</a></li><li><a href="global.html#lengthOfLongestSubstring">lengthOfLongestSubstring</a></li><li><a href="global.html#letterCombinations">letterCombinations</a></li><li><a href="global.html#longestPalindrome">longestPalindrome</a></li><li><a href="global.html#marsExploration">marsExploration</a></li><li><a href="global.html#maxArea">maxArea</a></li><li><a href="global.html#maxProduct">maxProduct</a></li><li><a href="global.html#merge">merge</a></li><li><a href="global.html#mergeSort">mergeSort</a></li><li><a href="global.html#mergeTwoLists">mergeTwoLists</a></li><li><a href="global.html#minWindow">minWindow</a></li><li><a href="global.html#pascalsTriangle">pascalsTriangle</a></li><li><a href="global.html#pascalTriangleOptimized">pascalTriangleOptimized</a></li><li><a href="global.html#productExceptSelf">productExceptSelf</a></li><li><a href="global.html#reverseList">reverseList</a></li><li><a href="global.html#reverseString">reverseString</a></li><li><a href="global.html#rotate">rotate</a></li><li><a href="global.html#search">search</a></li><li><a href="global.html#searchBST">searchBST</a></li><li><a href="global.html#serialize">serialize</a></li><li><a href="global.html#setZeroes">setZeroes</a></li><li><a href="global.html#spiralOrder">spiralOrder</a></li><li><a href="global.html#swapPairs">swapPairs</a></li><li><a href="global.html#TreeNode">TreeNode</a></li><li><a href="global.html#twoSum2">twoSum2</a></li><li><a href="global.html#valueidateBinarySearchTree">valueidateBinarySearchTree</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Thu Apr 14 2022 17:55:49 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

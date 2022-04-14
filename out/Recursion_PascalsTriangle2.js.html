@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Recursion/PascalsTriangle2.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,66 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Recursion/PascalsTriangle2.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @description returns the row of the triangle on giving the row index
+ */
 
+/**
+ * @param {number} rowIndex
+ * @return {number[]}
+ */
+const pascalsTriangle = (rowIndex) => {
+  // This implementation is quadratic time and should be avoided at all cost.
+  const getNums = (row, col) => {
+    if (row === 0 || col === 0 || row === col) return 1;
 
-    <h3> </h3>
+    return getNums(row - 1, col - 1) + getNums(row - 1, col);
+  };
 
+  let pascal = [];
+  for (let i = 0; i &lt;= numRows; i++) {
+    pascal.push(getNums(rowIndex, i));
+  }
 
+  return pascal;
+};
 
+/**
+ * @description time optimized solution O(n)
+ * @link https://leetcode.com/problems/pascals-triangle-ii/discuss/1203260/Very-easy-O(N)-time.-0-ms-beats-100-(simple-maths)-ALL-LANGUAGES
+ *
+ * Brilliant Solution by the user
+ *
+ */
 
+const pascalTriangleOptimized = (rowIndex) => {
+  let pascal = [1];
+  let temp = 1;
 
+  for (let i = 1; i &lt;= rowIndex; i++) {
+    temp = (temp * (rowIndex - i)) / i;
+    pascal.push(temp);
+  }
 
+  return temp;
+};
 
-
-
-
-    
-
-
-
-
-
+module.exports = {
+  pascalsTriangle,
+  pascalTriangleOptimized,
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

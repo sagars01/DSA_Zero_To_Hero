@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Strings/MarsExploration.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,49 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Strings/MarsExploration.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://www.hackerrank.com/challenges/mars-exploration/problem
+ * @example Input: s = SOSSOT
+            Output: 3
+ * @author sagars01
+ * 
+ * @type easy
+ * @description asked in Bukuwarung interview 25th Mar, 2022
+ */
 
+/**
+ * @param {String} s
+ * @return {number}
+ */
 
-    <h3> </h3>
+function marsExploration(s) {
+  const strLen = s.length / 3;
+  let distortCount = 0;
+  let actualStr = '';
+  for (let i = 0; i &lt; strLen; i++) {
+    actualStr += 'SOS';
+  }
 
+  for (let j = 0; j &lt; s.length; j++) {
+    if (s[j] !== actualStr[j]) distortCount++;
+  }
 
+  return distortCount;
+}
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = marsExploration;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Recursion/Divide-n-Conquer/MergeSortTD.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,53 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Recursion/Divide-n-Conquer/MergeSortTD.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @description implementation of merge sort using top down approach
+ *
+ */
 
+/**
+ *
+ * @param {Array} left
+ * @param {Array} right
+ * @returns {Array}
+ */
 
-    <h3> </h3>
+const merge = (left, right) => {
+  let arr = [];
+  while (left.length &amp;&amp; right.length) {
+    arr.push(left[0] &lt; right[0] ? left.shift() : right.shift());
+  }
+  return [...arr, ...left, ...right];
+};
 
+/**
+ * @param {Array} input
+ * @return {Array}
+ *
+ */
+const mergeSort = (input) => {
+  const pivot = input.length / 2;
+  if (input.length &lt; 2) return input;
 
+  const left = input.splice(0, pivot);
 
+  return merge(mergeSort(left), mergeSort(input));
+};
 
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = mergeSort;
+</code></pre>
+        </article>
+    </section>
 
 
 

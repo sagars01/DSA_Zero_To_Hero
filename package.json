@@ -7,7 +7,9 @@
   "dependencies": {
     "@dsinjs/binary-tree": "^2.0.1",
     "datastructures-js": "^10.2.0",
-    "jest": "^27.5.1",
+    "jest": "^27.5.1"
+  },
+  "devDependencies": {
     "jsdoc": "^3.6.10"
   }
 }

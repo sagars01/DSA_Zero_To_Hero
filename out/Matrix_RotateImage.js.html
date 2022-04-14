@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Matrix/RotateImage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,49 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Matrix/RotateImage.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/rotate-image/
+ * @example Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+            Output: [[7,4,1],[8,5,2],[9,6,3]]
+ * @author sagars01
+ * 
+ * @type MEDIUM
+ * @description 
+ * 
+ */
 
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+  matrix.reverse();
 
-    <h3> </h3>
+  // transpose
+  for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = i; j &lt; matrix[0].length; j++) {
+      let temp = matrix[i][j];
+      matrix[i][j] = matrix[j][i];
+      matrix[j][i] = temp;
+    }
+  }
 
+  return matrix;
+};
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = rotate;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Recursion/ReverseString.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,66 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Recursion/ReverseString.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @param {character[]} s
+ * @return {void} Do not return anything, modify s in-place instead.
+ */
+var reverseString = function (s) {
+  let l = 0;
+  let right = s.length - 1;
 
+  while (l &lt; right) {
+    const t = s[right];
+    s[right] = s[l];
+    s[l] = t;
+    l++;
+    right--;
+  }
 
-    <h3> </h3>
+  return s;
+};
 
+var reverseStringRecursive = (s, t = 0) => {
+  if (s.length === t) {
+    return '';
+  }
 
+  return reverseStringRecursive(s, t + 1) + s[t];
+};
 
+const reverseWithTwoPtrsNRecursion = (s) => {
+  const helper = (s, start, end) => {
+    if (start >= end) {
+      return s;
+    }
 
+    const t = s[start];
+    s[start] = s[end];
+    s[end] = t;
 
+    const str = helper(s, (start += 1), (end -= 1));
+    return str;
+  };
+  return helper([...s], 0, s.length - 1).join('');
+};
 
-
-
-
-
-    
-
-
-
-
-
+module.exports = {
+  reverseString,
+  reverseStringRecursive,
+  reverseWithTwoPtrsNRecursion,
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

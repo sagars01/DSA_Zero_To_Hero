@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Strings/CharacterReplacement.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,57 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Strings/CharacterReplacement.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/longest-repeating-character-replacement/
+ * @example 
+ *  Input: s = "ABAB", k = 2
+    Output: 4
+   Explanation: Replace the two 'A's with two 'B's or vice versa.
+ * @implements O(nklog(k))
+ * @type Medium, Blind75
+ * @author sagars01
+ * @description this can be further optimized
+ *
+ */
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+const characterReplacement = (s, k) => {
+  let left = 0;
+  let right = 0;
+  let maxCharCount = 0;
+  const visited = {};
 
+  while (right &lt; s.length) {
+    const char = s[right];
+    visited[char] = visited[char] ? visited[char] + 1 : 1;
 
-    <h3> </h3>
+    if (visited[char] > maxCharCount) maxCharCount = visited[char];
 
+    if (right - left + 1 - maxCharCount > k) {
+      visited[s[left]]--;
+      left++;
+    }
 
+    right++;
+  }
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+  return right - left;
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

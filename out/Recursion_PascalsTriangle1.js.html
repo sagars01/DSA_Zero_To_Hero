@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Recursion/PascalsTriangle1.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,43 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Recursion/PascalsTriangle1.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/pascals-triangle/
+ * @author @sagars01
+ *
+ */
 
+const generate = (numRows) => {
+  let pascal = [];
+  for (let i = 0; i &lt; numRows; i++) {
+    pascal[i] = [];
+    pascal[i][0] = 1;
 
-    <h3> </h3>
+    for (let j = 1; j &lt; i; j++) {
+      pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
+    }
 
+    pascal[i][i] = 1;
+  }
 
+  return pascal;
+};
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = {
+  generate,
+};
+</code></pre>
+        </article>
+    </section>
 
 
 

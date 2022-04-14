@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Trees/ValidateBST.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Trees/ValidateBST.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * https://leetcode.com/problems/valueidate-binary-search-tree/
+ *
+ *
+ */
 
+function valueidateBinarySearchTree(root) {
+  const queue = [root];
 
-    <h3> </h3>
+  while (queue.length > 0) {
+    const current = queue.shift();
+    const currentvalue = current.value;
+    if (
+      (current.left &amp;&amp; current.left.value > currentvalue) ||
+      (current.right &amp;&amp; current.right.value &lt; currentvalue)
+    ) {
+      return false;
+    }
 
+    if (current.left) queue.push(current.left);
+    if (current.right) queue.push(current.right);
+  }
 
+  return true;
+}
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = valueidateBinarySearchTree;
+</code></pre>
+        </article>
+    </section>
 
 
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Strings/ValidParenthesis.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,55 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Strings/ValidParenthesis.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/valid-parentheses/
+ * @example Input: s = "()"
+            Output: true
+            Input: s = "(]"
+            Output: false
+ * @implements You must write an algorithm with O(n) runtime complexity.
+ * @type Easy, String
+ * @author sagars01
+ * @description this is an unoptimized solution.
+ *
+ */
 
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function (s) {
+  let stack = [];
+  let i = 0;
+  let set = new Set(['()', '{}', '[]']);
+  while (i &lt; s.length) {
+    if (stack.length === 0) {
+      stack.push(s[i]);
+    } else {
+      const fullString = stack[stack.length - 1] + s[i];
+      if (set.has(fullString)) stack.pop();
+      else stack.push(s[i]);
+    }
 
-    <h3> </h3>
+    i++;
+  }
 
+  return stack.length === 0;
+};
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = isValid;
+</code></pre>
+        </article>
+    </section>
 
 
 

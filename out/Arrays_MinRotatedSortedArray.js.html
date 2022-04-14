@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Arrays/MinRotatedSortedArray.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,47 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Arrays/MinRotatedSortedArray.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @link https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+ * @example Input: nums = [3,4,5,1,2]
+            Output: 1
+ * @author sagars01           
+ * @type Medium
+ *            
+ */
 
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMin = function (nums) {
+  if (nums.length === 1) return nums[0];
+  if (!nums) return -1;
+  let start = 0;
+  let end = nums.length - 1;
 
-    <h3> </h3>
+  while (start &lt; end) {
+    let mid = Math.floor((start + end) / 2);
+    if (nums[mid] > nums[end]) start = mid + 1;
+    else end = mid;
+  }
 
+  return nums[start];
+};
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = findMin;
+</code></pre>
+        </article>
+    </section>
 
 
 

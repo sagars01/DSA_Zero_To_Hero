@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Trees/CreateBinaryTree.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Trees/CreateBinaryTree.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/***
+ * @description generate a binary tree from an array
+ * @method CreateBinaryTree
+ *
+ */
 
+function Node(val) {
+  this.val = val;
+  this.left = null;
+  this.right = null;
+}
 
-    <h3> </h3>
+function insertNode(tree, val) {
+  var node = tree,
+    key;
+  while (node.val !== val) {
+    key = val &lt; node.val ? 'left' : 'right';
+    if (!node[key]) {
+      node[key] = new Node(val);
+      break;
+    }
+    node = node[key];
+  }
+  return tree;
+}
 
+/**
+ * @param pass an array of numbers | string
+ */
+function CreateBinaryTree(treeArray) {
+  const array = treeArray,
+    tree = array.reduce((t, v) => (t ? insertNode(t, v) : new Node(v)), null);
+  return tree;
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = CreateBinaryTree;
+</code></pre>
+        </article>
+    </section>
 
 
 

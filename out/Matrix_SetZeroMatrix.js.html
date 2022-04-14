@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Matrix/SetZeroMatrix.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Matrix/SetZeroMatrix.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function (matrix) {
+  const row = new Set();
+  const col = new Set();
+  for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++) {
+      if (matrix[i][j] === 0) {
+        row.add(i);
+        col.add(j);
+      }
+    }
+  }
 
+  for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++) {
+      if (row.has(i) || col.has(j)) {
+        matrix[i][j] = 0;
+      }
+    }
+  }
 
-    <h3> </h3>
+  return matrix;
+};
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = setZeroes;
+</code></pre>
+        </article>
+    </section>
 
 
 
