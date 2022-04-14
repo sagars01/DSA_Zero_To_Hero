@@ -5,7 +5,7 @@
  * @author sagars01
  * 
  * @type MEDIUM
- * @description 
+ * @description First Reverse then transpose (matrix[j][i] = matrix[i][j])
  * 
  */
 
