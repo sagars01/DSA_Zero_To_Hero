@@ -3,6 +3,7 @@
 ## Graph - Directed
 
 A set of connected data is called a graph. Yes, that's it.
+
 Example: Facebook. You have profile details, dp, location, work info etc. for the Facebook database you are collection of data or a node [ You ] similarly your friends in Facebook are also nodes [ Friend A ] and [ Friend B ].
 
 So if you and your Friend A and Friend B are connected then in the database your are represented as
