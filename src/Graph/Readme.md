@@ -1,6 +1,6 @@
 # Graph Data Structure
 
-## Graph - Directed
+## Graph - UnDirected
 
 A set of connected data is called a graph. Yes, that's it.
 
@@ -31,4 +31,4 @@ If I want Paul and John's friends I just need to loop through the collection and
 
 That's it. This is a basic graph or a directed graph.
 
-Now, solve some problems related to this then again comeback and gobble more theory on Undirected Graph, Weighted Graph etc.
+The implementation of a basic undirected graph is in this directory [here](https://github.com/sagars01/DSA_Zero_To_Hero/blob/master/src/Graph/Graph.js)
