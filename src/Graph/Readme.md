@@ -1,6 +1,6 @@
 # Graph Data Structure
 
-## Graph - UnDirected
+## What is it?
 
 A set of connected data is called a graph. Yes, that's it.
 
@@ -32,3 +32,45 @@ If I want Paul and John's friends I just need to loop through the collection and
 That's it. This is a basic graph or a directed graph.
 
 The implementation of a basic undirected graph is in this directory [here](https://github.com/sagars01/DSA_Zero_To_Hero/blob/master/src/Graph/Graph.js)
+
+# Types of Graphs
+
+There are 3 types of graphs that we are interested in
+
+- **Directed**
+- **Undirected**
+- **Cyclic**
+
+You can learn those concepts from anywhere on the internet, they are pretty easy and available everywhere. So, won't waste any time.
+
+But, we should also know about some algorithms to solve the graph problems.
+Let's look into those
+
+### Disjoint Sets or Union Find
+
+#### What are they?
+
+See this below graph carefully
+
+Graph A
+
+```mermaid
+graph TB
+A((0)) --> B((1))
+A --> C((2))
+B --> D((3))
+```
+
+Graph B
+
+```mermaid
+graph TB
+A((7)) --> B((8))
+
+```
+
+If I ask you if Graph A and B are connected you'd say no its not. Because it's easy for us humans to tell that, but that's not the case for computers.
+
+We need a way for a program to tell whether these graphs are connected or not.
+
+To answer this question we need a special array based data structure called **disjoint sets** or an algorithm called **union find**
