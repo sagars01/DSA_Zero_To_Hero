@@ -47,9 +47,10 @@ describe('Graph: Disjoint Set Implementation', () => {
     ds.unionByRank(0, 1);
     ds.unionByRank(1, 2);
     ds.unionByRank(0, 3);
-    ds.unionByRank(3, );
+    ds.unionByRank(3, 5);
 
     console.log(ds.getDisjointSet());
-    expect(ds.getDisjointSet()).toBeTruthy();
+    const rank = [0, 0, 0, 0, 4, 0, 6, 7, 8, 9, ];
+    expect(ds.getDisjointSet()).toEqual(rank);
   });
 });
