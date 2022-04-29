@@ -30,6 +30,16 @@ describe('Graph: Disjoint Set Implementation', () => {
     ds.unionFind(3, 4);
     ds.unionFind(5, 6);
 
-    expect(ds.isConnected(1, 5)).toBe(f);
+    expect(ds.isConnected(1, 5)).toBe(false);
+  });
+
+  test('should return the updated disjointSet', () => {
+    const ds = new DisjointSet(size);
+    ds.unionFind(1, 2);
+    ds.unionFind(2, 3);
+    ds.unionFind(3, 4);
+    ds.unionFind(5, 6);
+    console.log(ds.getDisjointSet())
+    expect(ds.getDisjointSet()).toBeTruthy();
   });
 });
