@@ -38,6 +38,13 @@ class DisjointSet {
     return x;
   }
 
+  // Find Root using Path Compression
+  // Skipping one step;
+  findRootCompressed(x) {
+    if (x === this.root[x]) return x;
+    return (this.root[x] = this.findRootCompressed(this.root[x]));
+  }
+
   // Checks if the two given node (x , y) are connected.
   // If not connected this connect it.
   unionFind(x, y) {
