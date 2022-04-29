@@ -39,7 +39,17 @@ describe('Graph: Disjoint Set Implementation', () => {
     ds.unionFind(2, 3);
     ds.unionFind(3, 4);
     ds.unionFind(5, 6);
-    console.log(ds.getDisjointSet())
+    expect(ds.getDisjointSet()).toBeTruthy();
+  });
+
+  test('should return the updated disjointSet with unionRank', () => {
+    const ds = new DisjointSet(size);
+    ds.unionByRank(0, 1);
+    ds.unionByRank(1, 2);
+    ds.unionByRank(0, 3);
+    ds.unionByRank(3, );
+
+    console.log(ds.getDisjointSet());
     expect(ds.getDisjointSet()).toBeTruthy();
   });
 });

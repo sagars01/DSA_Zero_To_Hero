@@ -11,17 +11,31 @@
  */
 
 class DisjointSet {
-  root = [];
+  root;
+  rank;
   constructor(size) {
     this.size = size;
+    this.root = new Array(size);
+    this.rank = new Array(size);
     for (let i = 0; i < size; i++) {
       this.root[i] = i;
+      this.rank[i] = 1;
     }
   }
 
   // Returns the root of a given node
   find(x) {
     return this.root[x];
+  }
+
+  // Optimized find
+
+  findRoot(x) {
+    while (x !== this.root[x]) {
+      x = this.root[x];
+    }
+
+    return x;
   }
 
   // Checks if the two given node (x , y) are connected.
@@ -36,6 +50,26 @@ class DisjointSet {
           this.root[i] = rootX;
         }
       }
+    }
+  }
+
+  /**
+   *
+   * @description The union by rank is done to shorten the height of the Graph
+   *
+   */
+
+  unionByRank(x, y) {
+    const rootX = this.findRoot(x);
+    const rootY = this.findRoot(y);
+
+    if (this.rank[rootX] > this.rank[rootY]) {
+      this.root[rootY] = rootX;
+    } else if (this.rank[rootX] < this.rank[rootY]) {
+      this.root[rootX] = rootY;
+    } else {
+      this.root[rootY] = rootX;
+      this.rank[rootX] += 1;
     }
   }
 
