@@ -40,6 +40,7 @@ class DisjointSet {
 
   // Find Root using Path Compression
   // Skipping one step;
+  // complexity : O(logn)
   findRootCompressed(x) {
     if (x === this.root[x]) return x;
     return (this.root[x] = this.findRootCompressed(this.root[x]));
