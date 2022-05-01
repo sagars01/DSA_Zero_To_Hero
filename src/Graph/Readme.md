@@ -74,3 +74,7 @@ If I ask you if Graph A and B are connected you'd say no its not. Because it's e
 We need a way for a program to tell whether these graphs are connected or not.
 
 To answer this question we need a special array based data structure called **disjoint sets** or an algorithm called **union find**
+
+**Before moving forward**, I'd urge you to revisit Stacks and Queues chapter once.
+This will bring the foundation to the problems that we are going to do.
+Graphs are heavily based on stacks on queue and if you are confident with Stacks and Queues you can skip this step
