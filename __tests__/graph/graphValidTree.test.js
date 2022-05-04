@@ -9,6 +9,6 @@ describe('Graph: Valid Tree Suite', () => {
         [0, 3],
         [1, 4],
       ];
-    expect(GVT(n, edges)).toBe(tr);
+    expect(GVT(n, edges)).toBe(true);
   });
 });
