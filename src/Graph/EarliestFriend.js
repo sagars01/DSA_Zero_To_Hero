@@ -17,7 +17,7 @@ The sixth event occurs at timestamp = 20190301 and after 0 and 3 become friends 
  * 1. Sort the edges based on timestamp
  * 2. Join the connection,
  *      Note when a connection is built and decrement the count
- *      Once the count of connection becomes 0 
+ *      Once the count of connection becomes 1 
  *      That's the timestamp we are looking for
  *
  *
