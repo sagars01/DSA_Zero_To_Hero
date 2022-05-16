@@ -115,7 +115,7 @@ A((A)) --> |2| B((B)) --> |3| C((C)) --> |1| D((D))
 
 Now if you notice, we have a tree because there's **NO CYCLE** in the graph.
 
-**G$2$** is a **MST** of **G$1$**.
+**G2** is a **MST** of **G1**.
 
 ## Why we need an MST?
 
@@ -132,7 +132,7 @@ C --> D = 1
 D --> A = 5
 _Total_ = 11
 
-**G$1$**
+**G1**
 
 ```mermaid
 graph LR
@@ -141,7 +141,7 @@ A((A)) --> |2| B((B)) --> |3| C((C)) --> |1| D((D))
 D((D)) --> |5| A((A))
 ```
 
-Similarly for **G$2$**
+Similarly for **G2**
 
 ```mermaid
 graph LR
@@ -153,7 +153,7 @@ _Total Weight = 6_
 
 We can also try another **combination** where we remove the connection between B and C.
 
-**G$3$**
+**G3**
 
 ```mermaid
 graph LR
@@ -167,10 +167,10 @@ _Total Weight = 8_
 
 We can say:
 
-**G$1$** > **G$3$** > **G$2$**
+**G1** > **G3** > **G2**
 
-**G$2$** is the minimum spanning tree that we are looking for and it is
+**G2** is the minimum spanning tree that we are looking for and it is
 
-**The least weighted sub graph from a given graph** **G$1$**
+**The least weighted sub graph from a given graph** **G1**
 
-If we keep on comparing all other combination we will eventually find out the minimum spanning tree of the graph **G$1$**
+If we keep on comparing all other combination we will eventually find out the minimum spanning tree of the graph **G1**
