@@ -77,4 +77,42 @@ To answer this question we need a special array based data structure called **di
 
 **Before moving forward**, I'd urge you to revisit Stacks and Queues chapter once.
 This will bring the foundation to the problems that we are going to do.
-Graphs are heavily based on stacks on queue and if you are confident with Stacks and Queues you can skip this step
+Graphs are heavily based on stacks on queue and if you are confident with Stacks and Queues you can skip this step.
+
+# MINIMUM SPANNING TREES (MST)
+
+This is a very important concept of a Graph Data Structures. To get started we first have to understand why, when and how this is required and implemented.
+
+## What is a MST?
+
+A subset of a **weighted graph** is called a Minimum Spanning Tree.
+
+What does that mean? It means when you have a complete graph **G$1$** with **V - vertices** and **E - edges** and you create another graph from the same graph with **V - vertices** and **(E - 1) edges** you have created a subset of the main Graph **G$2$**
+
+**Example**
+
+**G$1$**
+
+```mermaid
+graph LR
+
+A((A)) --> |2| B((B)) --> |3| C((C)) --> |1| D((D))
+D((D)) --> |5| A((A))
+```
+
+**V = 4 , E = 4**
+
+**G$2$**
+
+```mermaid
+graph LR
+
+A((A)) --> |2| B((B)) --> |3| C((C)) --> |1| D((D))
+
+```
+
+**V = 4 , E = 3**
+
+Now if you notice, we have a tree because there's **NO CYCLE** in the graph.
+
+**G$2$** is a **MST** of **G$1$**.
