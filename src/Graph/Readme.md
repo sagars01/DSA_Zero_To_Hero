@@ -174,3 +174,7 @@ We can say:
 **The least weighted sub graph from a given graph** **G1**
 
 If we keep on comparing all other combination we will eventually find out the minimum spanning tree of the graph **G1**
+
+## Implementation of MST
+
+A better explanation is given [here]https://girlsincode.com/javascript/minimum-spanning-tree-in-an-undirected-weighted-graph-kruskal/)
