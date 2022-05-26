@@ -3,7 +3,24 @@
  * @example Input: nums = [-1,0,1,2,-1,-4]
             Output: [[-1,-1,2],[-1,0,1]]
             Explanation: return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0
-  @description solve two sum - 1 and two sum 2 to fully understand the underlying trick.            
+  @description solve two sum - 1 and two sum 2 to fully understand the underlying trick.       
+  
+  Anyway the idea is simple
+
+  You have 3 pointer (i = 0, j = i + 1 )and (k = end of the array) and based on some strategy you are moving the pointers. 
+  So 
+  1. If values of pointers [i , j , k] === 0 then we found a valid triplet
+    a. Push the triplet in a results array.
+    b. increase the j pointer;
+    c. decrease the k pointer
+    d. while the current jPointer's value and the next jPointer's value is same increase jPointer's value, because we don't want to revisit or recompute the same value over and over again.
+    e. The above principle is applicable to kPointer as well.
+
+  2. If the sum of [i , j , k ] is less than 0
+    a. Decrease the K pointer
+  3. Else 
+    b. increase the J pointer;
+  
  * @type Medium
  * @author sagars01
  */
@@ -13,71 +30,47 @@
  * @return {number[][]}
  */
 var threeSum = function (nums) {
-  var rtn = [];
+  let result = [];
+
   if (nums.length < 3) {
-    return rtn;
+    return result;
   }
-  nums = nums.sort(function (a, b) {
-    return a - b;
-  });
-  for (var i = 0; i < nums.length - 2; i++) {
-    if (nums[i] > 0) {
-      return rtn;
-    }
-    if (i > 0 && nums[i] == nums[i - 1]) {
-      continue;
-    }
-    for (var j = i + 1, k = nums.length - 1; j < k; ) {
-      if (nums[i] + nums[j] + nums[k] === 0) {
-        rtn.push([nums[i], nums[j], nums[k]]);
-        j++;
-        k--;
-        while (j < k && nums[j] == nums[j - 1]) {
-          j++;
+
+  nums.sort((a, b) => a - b);
+
+  for (let iPointer = 0; iPointer < nums.length; iPointer++) {
+    // jPointer - starts 1 step ahead of iPointer
+    // kPointer - starts from the end of the array;
+    // You get the range in which you have to traverse.
+
+    if (nums[iPointer] > 0) return result;
+
+    if (iPointer > 0 && nums[iPointer] === nums[iPointer - 1]) continue;
+
+    for (
+      let jPointer = iPointer + 1, kPointer = nums.length - 1;
+      jPointer < kPointer;
+
+    ) {
+      if (nums[iPointer] + nums[jPointer] + nums[kPointer] === 0) {
+        result.push([nums[iPointer], nums[jPointer], nums[kPointer]]);
+
+        jPointer++;
+        kPointer--;
+
+        while (jPointer < kPointer && nums[jPointer] === nums[jPointer - 1]) {
+          jPointer++;
         }
-        while (j < k && nums[k] == nums[k + 1]) {
-          k--;
+        while (jPointer < kPointer && nums[kPointer] === nums[kPointer + 1]) {
+          kPointer--;
         }
-      } else if (nums[i] + nums[j] + nums[k] > 0) {
-        k--;
+      } else if (nums[iPointer] + nums[jPointer] + nums[kPointer] > 0) {
+        kPointer--;
       } else {
-        j++;
+        jPointer++;
       }
     }
   }
-  return rtn;
+
+  return result;
 };
-
-module.exports = threeSum;
-
-/**
- * Revisit
- * 
- * 
-  nums.sort();
-  let res = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === nums[i - 1]) continue;
-    const current = nums[i];
-    let start = i + 1,
-      end = nums.length - 1;
-    while (start < end) {
-      if (current + nums[start] + nums[end] === 0) {
-        res.push(current, nums[start], nums[end]);
-        j++;
-        k--;
-        while (j < k && nums[j] == nums[j - 1]) {
-          j++;
-        }
-        while (j < k && nums[k] == nums[k + 1]) {
-          k--;
-        }
-      } else if (current + nums[start] + nums[end] > 0) {
-        end -= 1;
-      } else {
-        start += 1;
-      }
-    }
-  }
-  return res;
- */
