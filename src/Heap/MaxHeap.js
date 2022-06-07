@@ -27,8 +27,6 @@ class MaxHeap {
             heap[idx],
             heap[Math.floor(idx / 2)],
           ];
-          // If there's another parent to the node is question
-          // Continue moving up;
           if (Math.floor(idx / 2) > 1) {
             idx = Math.floor(idx / 2);
           } else {
@@ -38,6 +36,8 @@ class MaxHeap {
       }
     }
   }
+
+  remove() {}
 }
 
 module.exports = MaxHeap;
