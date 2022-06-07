@@ -4,11 +4,12 @@ describe('Heap Suite', () => {
   describe('MaxHeap: Implementation Test Suite', () => {
     test('should insert in correct position', () => {
       const heap = new MaxHeap();
-      for (let element of [0, 1, 2, 3, 4, 5]) {
+      for (let element of [0, 1, 2, 3, 4, 5, 6]) {
         heap.insert(element);
       }
 
       console.log(heap.getHeap());
+      expect(heap.getHeap()).toEqual([null, 6, 3, 5, 0, 2, 1, 4]);
     });
   });
 });
