@@ -43,21 +43,50 @@ class MaxHeap {
     }
 
     if (this.root.length === 3) {
-      swap(this.root.length - 1, 1);
+      this.swap(1, 2);
       return this.root.pop();
     }
 
-    let idx = this.root.length - 1;
+    if (this.root.length <= 1) {
+      return null;
+    }
 
-    swap(idx, this.root[1]);
-
+    this.swap(1, this.root.length - 1);
     const numToPop = this.root.pop();
 
-    while (this.root[idx] > this.root[Math.floor(idx / 2)]) {
-      swap(idx, Math.floor(idx / 2));
+    let idx = 1;
+    let left = 2 * idx;
+    let right = 2 * idx + 1;
 
-      if (Math.floor(idx / 2) > 1) {
-        idx = Math.floor(idx / 2);
+    while (
+      this.root[idx] <= this.root[left] ||
+      this.root[idx] <= this.root[right]
+    ) {
+      if (this.root[left] > this.root[right]) {
+        this.swap(left, idx);
+        idx = left;
+      } else {
+        this.swap(right, idx);
+        idx = right;
+      }
+
+      left = idx * 2;
+      right = idx * 2 + 1;
+
+      if (!this.root[left] || !this.root[right]) {
+        break;
+      }
+    }
+
+    if (this.root[left]) {
+      if (this.root[left] > this.root[idx]) {
+        this.swap(left, idx);
+      }
+    }
+
+    if (this.root[right]) {
+      if (this.root[right] > this.root[idx]) {
+        this.swap(right, idx);
       }
     }
 
