@@ -3,6 +3,7 @@
  *
  * @link https://leetcode.com/problems/daily-temperatures/
  * @author sagars01
+ * @link Theory: https://github.com/sagars01/DSA_Zero_To_Hero/tree/master/src/Stacks_Queues#monotonic-stacks
  * @description The idea is have a decreasing monotonic stack.
  *
  * Take a stack push [index , temperature]
