@@ -15,28 +15,28 @@
  * @example Input : [73,74,75,71,69,72,76,73]
  *  Output: [1,1,4,2,1,1,0,0]
  */
+/**
+ * @param {number[]} t
+ * @return {number[]}
+ */
 var dailyTemperatures = function (t) {
-  const monotonicStack = [];
-  let output = new Array(t.length).fill(0);
-
+  let monotonicStack = [];
+  let result = new Array(t.length).fill(0);
+  let current = 0;
   const topOfStack = () => monotonicStack[monotonicStack.length - 1];
-  const stackLen = () => monotonicStack.length;
-  for (let index = 0; index < t.length; index++) {
-    const currentTemp = t[index];
-    if (stackLen() == 0) {
-      monotonicStack.push([index, currentTemp]);
-      continue;
+  while (current < t.length) {
+    let currentTemp = t[current];
+    while (topOfStack && currentTemp > t[topOfStack()]) {
+      const previousTemp = monotonicStack.pop();
+      const dayDiff = current - previousTemp;
+      result[previousTemp] = dayDiff;
     }
 
-    while (stackLen() && currentTemp > topOfStack()[1]) {
-      const [idx, temp] = monotonicStack.pop();
-      output[idx] = index - idx;
-    }
-
-    monotonicStack.push([index, currentTemp]);
+    monotonicStack.push(current);
+    current++;
   }
 
-  return output;
+  return result;
 };
 
 /**
