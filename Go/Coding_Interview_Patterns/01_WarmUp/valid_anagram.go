@@ -49,3 +49,25 @@ func (sol *Solution) isAnagram(s, t string) bool {
 
   return len(set) == 0
 }
+
+/**
+GoLang Learning
+
+To access if a key exists in a map use
+value , ok := set[key]
+
+if you check directly like this 
+
+value = set[key]
+
+if it doesn't exist 
+	if your map key value is int like this map[rune]int
+		the set will return 0 
+	if you map key value is string like this map[rune]string
+		the set will return ""
+
+which can be a valid value for your case
+So its better to use 
+value, ok := set[key]
+
+*/
