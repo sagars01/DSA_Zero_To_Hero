@@ -27,6 +27,8 @@ Constraints:
 
 */
 
+package warmup
+
 import ()
 
 type Solution struct{}
