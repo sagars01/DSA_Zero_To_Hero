@@ -35,3 +35,11 @@ func (sol *Solution) search(arr []int, targetSum int) []int {
     return []int{-1, -1} 
 }
 
+/**
+
+Alternate Approach:
+
+Using Hashmap
+
+
+*/
