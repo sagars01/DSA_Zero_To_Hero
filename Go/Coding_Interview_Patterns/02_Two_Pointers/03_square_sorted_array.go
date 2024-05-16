@@ -1,6 +1,6 @@
 /**
 Problem Statement
-Given a sorted array, create a new array containing result of all the numbers 
+Given a sorted array, create a new array containing result of all the numbers
 of the input array in the sorted order.
 
 Example 1:
@@ -10,38 +10,35 @@ Output: [0, 1, 4, 4, 9]
 
 */
 
-import ()
+package twopointers
 
-// Solution struct to mimic a class.
-type Solution struct{}
+func (s *Solution) makeresult(arr []int) []int {
+	n := len(arr)
+	result := make([]int, n)
+	left, right := 0, n-1
+	counter := n - 1
+	for left <= right {
+		lsquare, rsquare := arr[left]*arr[left], arr[right]*arr[right]
+		if lsquare < rsquare {
+			result[counter] = rsquare
+			right--
+		} else {
+			result[counter] = lsquare
+			left++
+		}
+		counter--
+	}
 
-func (s* Solution) makeresult(arr []int) []int {
-    n := len(arr)
-    result := make([]int, n)
-    left, right := 0 , n - 1
-    counter := n - 1
-    for left <= right {
-        lsquare, rsquare := arr[left] * arr[left], arr[right] * arr[right]
-        if( lsquare < rsquare) {
-            result[counter] = rsquare
-            right--
-        } else {
-            result[counter] = lsquare
-            left++
-        }
-        counter--
-    }
-
-    return result
+	return result
 }
 
 /**
-Algorithm: 
+Algorithm:
 
  What we have:
  - Sorted array of negative + positive integers
 
- What we want or will get: 
+ What we want or will get:
  - Sorted array of positive integers
  - Since squaring two negatives will result to positive
 
@@ -57,16 +54,16 @@ Algorithm:
  lsquare = square of left side pointer
  rsquare = square of right side pointer
 
- compare which one is greater. 
+ compare which one is greater.
 
  lets say rsquare is greater then where is the pointer in result array
  at the end using the "counter" variable
 
- So we put the rsquare value in the "counter" position 
+ So we put the rsquare value in the "counter" position
  decrease the "counter" position to expect a lesser or equal number
 
  and since we found a greater number of at rsquare
- we are looking for the second greatest number 
+ we are looking for the second greatest number
  which will be inwards [ <- rightPointer] of rightPointer
 
  We do the same thing for leftsquare [leftPointer -> ]
