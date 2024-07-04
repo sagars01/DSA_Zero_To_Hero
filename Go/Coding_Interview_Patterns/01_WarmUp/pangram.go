@@ -1,5 +1,5 @@
 /**
-Problem: 
+Problem:
 
 A pangram is a sentence where every letter of the English alphabet appears at least once.
 
@@ -22,8 +22,6 @@ import (
 	"unicode"
 )
 
-type Solution struct{}
-
 func (s *Solution) checkIfPangram(sentence string) bool {
 	seen := make(map[rune]bool)
 	// Convert sentence to lowercase and iterate over each character
@@ -36,4 +34,3 @@ func (s *Solution) checkIfPangram(sentence string) bool {
 
 	return len(seen) == 26
 }
-

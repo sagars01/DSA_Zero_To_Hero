@@ -1,41 +1,34 @@
 package warmup
 
 import (
-    "unicode"
-    "strings"
-	
+	"strings"
+	"unicode"
 )
-
-type Solution struct {
-}
-
 
 func (sol *Solution) isPalindrome(s string) bool {
 
-    start := 0
-    end := len(s) - 1
+	start := 0
+	end := len(s) - 1
 
- 
-    for start < end {
+	for start < end {
 
-        for start < end && !isLetterOrDigit(rune(s[start])) {
-            start++
-        }
-
-        for start < end && !isLetterOrDigit(rune(s[end])) {
-            end--
-        }
-        
-
-        if strings.ToLower(string(s[start])) != strings.ToLower(string(s[end])) {
-			return false 
+		for start < end && !isLetterOrDigit(rune(s[start])) {
+			start++
 		}
 
-        start++
-        end--
-    }
+		for start < end && !isLetterOrDigit(rune(s[end])) {
+			end--
+		}
 
-    return true
+		if strings.ToLower(string(s[start])) != strings.ToLower(string(s[end])) {
+			return false
+		}
+
+		start++
+		end--
+	}
+
+	return true
 }
 
 func isLetterOrDigit(r rune) bool {

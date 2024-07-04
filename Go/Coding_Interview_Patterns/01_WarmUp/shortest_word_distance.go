@@ -27,52 +27,49 @@ word1 != word2
 
 */
 
-
 package warmup
 
 import (
 	"math"
 )
 
-type Solution struct{}
-
 // shortestDistance finds the shortest distance between two words in an array.
 func (s *Solution) shortestDistance(words []string, word1 string, word2 string) int {
 
 	IW1 := -1
 	IW2 := -1
-	diff := len(words) + 1;
+	diff := len(words) + 1
 
-	for index , word := range words {
+	for index, word := range words {
 		if word == word1 {
-      IW1 = int(math.Max(float64(IW1), float64(index))) // Convert to float64
-    }
+			IW1 = int(math.Max(float64(IW1), float64(index))) // Convert to float64
+		}
 
-    if word == word2 {
-      IW2 = int(math.Max(float64(IW2), float64(index))) // Convert to float64
-    }
+		if word == word2 {
+			IW2 = int(math.Max(float64(IW2), float64(index))) // Convert to float64
+		}
 
-    if IW1 != -1 && IW2 != -1 {
-      d := math.Abs(float64(IW2 - IW1)) // Declare d as float64
-      diff = int(math.Min(float64(diff), d)) // Convert to float64
-    }
+		if IW1 != -1 && IW2 != -1 {
+			d := math.Abs(float64(IW2 - IW1))      // Declare d as float64
+			diff = int(math.Min(float64(diff), d)) // Convert to float64
+		}
 
 	}
 
 	return diff
 }
 
-/** 
+/**
 Golang Language Learning
 
-math.Max expects float64 arguments: 
+math.Max expects float64 arguments:
 The math.Max function is designed to find the maximum value between two numbers.
- It can handle decimals, so it expects arguments of type float64. 
+ It can handle decimals, so it expects arguments of type float64.
 You were trying to pass integers (IW1, index) directly, leading to a type mismatch.
 
-math.Max expects float64 arguments: The math.Max function is designed 
-to find the maximum value between two numbers. 
-It can handle decimals, so it expects arguments of type float64. 
+math.Max expects float64 arguments: The math.Max function is designed
+to find the maximum value between two numbers.
+It can handle decimals, so it expects arguments of type float64.
 
 You were trying to pass integers (IW1, index) directly, leading to a type mismatch.
 

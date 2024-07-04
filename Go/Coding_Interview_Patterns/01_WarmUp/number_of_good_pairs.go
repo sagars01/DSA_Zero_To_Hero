@@ -29,25 +29,21 @@ Constraints:
 
 package warmup
 
-import ()
-
-type Solution struct{}
-
 func (sol *Solution) numGoodPairs(nums []int) int {
 	pairCount := 0
 	// TODO: Write your code here
 
 	numSet := make(map[int]int)
 	for _, num := range nums {
-		val , ok := numSet[num]
+		val, ok := numSet[num]
 
 		if !ok {
 			// add the entry in the map with initial value of 0
 			numSet[num] = 0
 		} else {
-			pairCount += val + 1;
+			pairCount += val + 1
 			numSet[num] += 1
-		} 
+		}
 
 	}
 
