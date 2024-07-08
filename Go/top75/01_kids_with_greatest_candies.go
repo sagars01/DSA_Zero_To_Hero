@@ -1,19 +1,31 @@
 package top75
 
+import "fmt"
+
 type Top75 struct {
 }
 
 // Method KidwithGreatestCandies with a receiver of type *Top75
 func (t *Top75) KidwithGreatestCandies(candies []int, extraCandies int) []bool {
-	maxCandies := 0
-	for _, candy := range candies {
-		if candy > maxCandies {
-			maxCandies = candy
+	result := make([]bool, len(candies))
+	max := -1
+	for c := range candies {
+		newCount := candies[c] + extraCandies
+		candies[c] = newCount
+		if newCount > max {
+			max = newCount
 		}
 	}
-	result := make([]bool, len(candies))
-	for i, candy := range candies {
-		result[i] = candy+extraCandies >= maxCandies
+
+	for i, n := range candies {
+		if n < max {
+			result[i] = true
+		} else {
+			result[i] = false
+		}
 	}
+
+	fmt.Println(result)
+
 	return result
 }
